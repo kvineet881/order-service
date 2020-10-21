@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class OrderService {
+public class  OrderService {
     @Autowired
     private OrderRepository repository;
 
@@ -26,7 +26,7 @@ public class OrderService {
         payment.setAmmount(order.getPrice());
 
         //rest api call
-         Payment paymentResponce= template.postForObject("http://localhost:9191/payment/doPayment",payment,Payment.class);
+         Payment paymentResponce= template.postForObject("http://payment-service/payment/doPayment",payment,Payment.class);
          response=paymentResponce.getPaymentStatus().equals("success")
                  ?"Payment Successful and Order Placed"
                  :"Payment Failed and order added to cart";
