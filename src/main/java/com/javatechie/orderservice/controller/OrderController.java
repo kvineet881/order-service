@@ -17,7 +17,7 @@ public class OrderController {
     @Autowired
     private OrderService service;
 
-    @PostMapping("/saveOrder")
+    @PostMapping("/bookOrder")
     public TransactionResponce saveOrder(@RequestBody TransactionRequest request) {
         return service.saveOrder(request);
     }
